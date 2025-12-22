@@ -10,7 +10,7 @@ Thank you to all countries that helped Ukraine
 
 1. [About the war](https://srghma.github.io/war) (tried to get all reasons why were are attacked, but I don't regard this post as good anymore)
 
-1. [Review on "Ukraine on fire" film](https://srghma.github.io/ukraine-on-fire)!
+1. [Review on "Ukraine on fire" film](https://srghma.github.io/ukraine-on-fire)
 
 <!-- 1. [China](https://srghma.github.io/china) (preventing future war with Taiwan and America) -->
 
