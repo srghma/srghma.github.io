@@ -13,8 +13,8 @@
   "license": "MIT",
   "author": "Thomas Leon Highbaugh <thighbaugh@zoho.com>",
   "scripts": {
-    "serve": "concurrently \"npx @tailwindcss/cli -i ./tailwind.css -o ./build.css --watch\"  \"live-server ./docs\"",
-    "build": "npx @tailwindcss/cli -i ./tailwind.css -o ./build.css"
+    "serve": "concurrently \"npx @tailwindcss/cli -i ./tailwind.css -o ./build.css --watch\" \"./node_modules/.bin/pug index.pug --out . --watch --pretty\" \"live-server ./\"",
+    "build": "./node_modules/.bin/pug index.pug --out . --pretty && npx @tailwindcss/cli -i ./tailwind.css -o ./build.css"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^7.0.2",
@@ -28,5 +28,8 @@
     "postcss-import": "16.1.0",
     "tailwind-heropatterns": "^0.0.8",
     "tailwindcss": "^4.1.4"
+  },
+  "devDependencies": {
+    "pug-cli": "1.0.0-alpha6"
   }
 }

@@ -1,0 +1,275 @@
+doctype html
+html(lang="en" xmlns="http://www.w3.org/1999/xhtml")
+  head
+    meta(charset="UTF-8")
+    meta(name="description" content="Full Stack Developer")
+    meta(name="keywords" content="resume,cv,Serhii Khoma")
+    meta(name="author" content="Serhii Khoma")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet")
+    link(href="./build.css" rel="stylesheet")
+    title Serhii Khoma — Resume
+  body
+    main(class="font-jost hyphens-manual")
+      // Page
+      section(class="p-3 my-auto mx-auto max-w-3xl bg-gray-100 rounded-2xl border-4 border-gray-700 sm:p-9 md:p-16 lg:mt-6 print:border-0 page print:max-w-[72rem] print:mx-0 print:my-0 xsm:p-8 print:bg-white md:max-w-[72rem]")
+        // Name
+        header(class="inline-flex justify-between mb-2 w-full align-top border-b-4 border-gray-300")
+          section(class="flex flex-col justify-evenly")
+            h1(class="mb-0 text-5xl font-bold text-gray-700") Serhii Khoma
+            h2(class="m-0 text-2xl font-semibold text-gray-700 leading-snugish")
+              | Full Stack Developer
+            h3(class="m-0 text-xl font-semibold text-gray-500 leading-snugish")
+              | Phnom Penh, Cambodia
+          img(class="w-40 m-2 rounded-full object-cover self-baseline" src="https://s3.resume.io/uploads/profile_picture/file/6080985/00a7f7b62c38cdae5da921ab7c1b54c1.jpg" alt="Logo")
+
+        // Column
+        section(class="col-gap-8 columns-2 print:h-letter-col-full col-fill-balance md:h-letter-col-full")
+          section(class="flex-col")
+            // Contact Information
+            section(class="pb-2 mt-4 mb-0 first:mt-0")
+              section(class="break-inside-avoid")
+                section(class="pb-4 mb-2 border-b-4 border-gray-300 break-inside-avoid")
+                  ul(class="pr-7 list-inside")
+                    mixin contactItemSuffixItem(s)
+                      a(href=s.url class="text-gray-500 hover:text-gray-700")= s.name
+                        span(class="inline-block font-normal text-gray-500 transition duration-100 ease-in group-hover:text-gray-700 print:text-black print:") &nbsp;↗
+
+                    mixin contactItemSuffix(suffix)
+                      if suffix
+                        span  (
+                        each s, index in suffix
+                          +contactItemSuffixItem(s)
+                          if index < suffix.length - 1
+                            | ,&nbsp;
+                        | )
+
+                    mixin contactItemLink(value, href)
+                      a(class="group hover:text-gray-700" href=href)
+                        span= value
+                        span(class="inline-block font-normal text-gray-500 transition duration-100 ease-in group-hover:text-gray-700 print:text-black print:") &nbsp;↗
+
+                    mixin contactItem(label, value, href)
+                      li(class="mt-1 leading-normal text-gray-500 transition duration-100 ease-in text-md print:")
+                        span(class="mr-2 text-lg font-semibold text-gray-700 leading-snugish")= label + ":"
+                        block
+
+                    +contactItem("Portfolio")
+                      +contactItemLink("srghma.github.io", "https://srghma.github.io/")
+                    +contactItem("Github")
+                      +contactItemLink("srghma", "https://github.com/srghma")
+                    +contactItem("Email")
+                      +contactItemLink("srghma@gmail.com", "mailto:srghma@gmail.com")
+                    +contactItem("Phone")
+                      +contactItemLink("+380957367005", "tel:+380957367005")
+                      +contactItemSuffix([
+                        {name: "tg", url: "https://t.me/srghma"},
+                      ])
+                      | ,&nbsp;
+                      +contactItemLink("+85586351227", "tel:+85586351227")
+                      +contactItemSuffix([
+                        {name: "wa", url: "https://wa.me/+85586351227"},
+                        {name: "tg", url: "https://t.me/srghma"},
+                        {name: "signal", url: "https://signal.me/#p/+85586351227"}
+                      ])
+                    +contactItem("LinkedIn")
+                      +contactItemLink("linkedin.com/in/srghma", "https://www.linkedin.com/in/srghma/")
+                    +contactItem("Stack Overflow")
+                      +contactItemLink("srghma", "https://stackoverflow.com/users/3574379/srghma")
+
+            // Summary
+            section(class="pb-4 mt-0 border-b-4 border-gray-300 first:mt-0")
+              section(class="break-inside-avoid")
+                h2(class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal") SUMMARY
+                section(class="mb-2 break-inside-avoid")
+                  p(class="mt-2 leading-normal text-gray-700 text-md")
+                    | Experienced full-stack developer with expertise in functional programming and blockchain development. Was a team lead in a small company (4 people). Proficient in multiple programming languages and frameworks including JavaScript, React, Purescript, and Ruby on Rails. Not open to relocation.
+
+            // Education
+            section(class="pb-0 mt-2 border-b-4 border-gray-300 first:mt-0 break-inside-avoid")
+              section(class="break-inside-avoid")
+                h2(class="mb-2 text-lg font-bold tracking-widest text-gray-700 print:font-normal") EDUCATION
+
+                section(class="mt-2 border-b-2 border-gray-300 break-inside-avoid")
+                  header
+                    h3(class="text-lg font-semibold text-gray-700 leading-snugish") Tallinn University of Technology
+                    p(class="leading-normal text-gray-500 text-md") 2019 – 2020 | PhD Student
+                  ul(class="mt-2 list-disc list-inside text-gray-800 text-md")
+                    li
+                      span(class="font-semibold text-md") Research:&nbsp;
+                      | Blockchain and Construction Engineering
+
+                section(class="pb-4 mt-4 mb-4 break-inside-avoid")
+                  header
+                    h3(class="grow text-lg font-semibold text-gray-700 leading-snugish") University of Customs and Finance
+                    p(class="leading-normal text-gray-500 text-md") 2011 – 2017 | Specialist Degree
+                  ul(class="mt-2 list-disc list-inside text-gray-800 text-md")
+                    li
+                      span(class="font-semibold text-md") Major:&nbsp;
+                      | Informatics
+
+            // Skills
+            section(class="pb-6 mt-0 mb-4 border-b-4 border-gray-300 first:mt-0 break-inside-avoid")
+              section(class="break-inside-avoid")
+                h2(class="mb-2 text-lg font-bold tracking-widest text-gray-700 print:font-normal") SKILLS
+                section(class="mb-0 break-inside-avoid")
+                  section(class="mt-1 last:pb-1")
+                    ul(class="flex flex-wrap font-bold gap-x-1")
+                      mixin skillItem(name, iconClass, printIconClass)
+                        li(class="flex items-center p-1.5 mb-1 leading-relaxed text-white bg-gray-800 mr-1.6 print:bg-white print:shadow-gray-400 print:shadow-inset-mypixel font-bold")
+                          //- Check if a block (like an SVG) was passed to the mixin
+                          if block
+                            block
+                          else if iconClass
+                            if iconClass.startsWith("http")
+                              img(src=iconClass, class="mr-2 h-6 " + (printIconClass ? "print:hidden" : ""))
+                              if printIconClass
+                                img(src=printIconClass, class="mr-2 h-6 hidden print:block")
+                            else
+                              i(class=iconClass + " mr-2 text-xl " + (printIconClass ? "print:hidden" : ""))
+                              if printIconClass
+                                i(class=printIconClass + " mr-2 text-xl hidden print:block")
+                          span= name
+
+                      +skillItem("TypeScript", "devicon-typescript-plain colored")
+                      +skillItem("JavaScript", "devicon-javascript-plain colored")
+                      +skillItem("React", "devicon-react-original colored")
+                      +skillItem("SQL", "devicon-postgresql-plain colored")
+                      +skillItem("Rust", "devicon-rust-plain")
+                      +skillItem("Ruby on Rails", "devicon-rails-plain colored")
+                      +skillItem("Python", "devicon-python-plain colored")
+                      +skillItem("Android", "devicon-android-plain colored")
+                      +skillItem("Haskell", "devicon-haskell-plain colored")
+                      +skillItem("Lean4 ⚠️", "https://lean-lang.org/static/favicon-light.ico", "https://lean-lang.org/static/favicon-dark.ico")
+                      +skillItem("Postgraphile", "https://www.graphile.org/favicon-32x32.png")
+                      +skillItem("Hasura", "https://hasura.io/favicon.ico")
+                      +skillItem("Angular", "devicon-angularjs-plain colored")
+                      +skillItem("Purescript", "devicon-purescript-original")
+                      +skillItem("Nix", "devicon-nixos-plain colored")
+                      +skillItem("Blockchain")
+                        svg(class="mr-2 h-5 w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 879.4" fill="currentColor")
+                          path(d="m269.9 325.2-269.9 122.7 269.9 159.6 270-159.6z" opacity=".6")
+                          path(d="m0.1 447.8 269.9 159.6v-607.4z" opacity=".45")
+                          path(d="m270 0v607.4l269.9-159.6z" opacity=".8")
+                          path(d="m0 499 269.9 380.4v-220.9z" opacity=".45")
+                          path(d="m269.9 658.5v220.9l270.1-380.4z" opacity=".8")
+
+                      +skillItem("Solidity", "devicon-solidity-plain")
+                      +skillItem("Functional Programming", "fas fa-code-branch text-purple-400")
+                      //- +skillItem("C++", "devicon-cplusplus-plain")
+                      //- +skillItem("C", "devicon-c-plain")
+                      +skillItem("Bash", "devicon-bash-plain")
+                      +skillItem("Git", "devicon-git-plain")
+                      +skillItem("Docker", "devicon-docker-plain")
+                      +skillItem("Kubernetes", "devicon-kubernetes-plain")
+                      +skillItem("Terraform", "devicon-terraform-plain")
+                      +skillItem("AWS", "devicon-amazonwebservices-plain")
+                      +skillItem("GCP", "devicon-googlecloud-plain")
+                      //- +skillItem("Azure", "devicon-azure-plain")
+                      +skillItem("Linux", "devicon-linux-plain")
+                      +skillItem("Nginx", "devicon-nginx-plain")
+                      +skillItem("Svelte", "https://svelte.dev/favicon.png")
+                      +skillItem("SolidJS", "https://solidjs.com/img/favicons/favicon-32x32.png")
+                      +skillItem("Vue", "https://vuejs.org/logo.svg")
+                      //- +skillItem("Windows", "devicon-windows-plain")
+                      //- +skillItem("MacOS", "devicon-macos-plain")
+                      //- +skillItem("Android", "devicon-android-plain")
+                      //- +skillItem("iOS", "devicon-ios-plain")
+                      //- +skillItem("Web", "devicon-web-plain")
+                      //- +skillItem("Mobile", "devicon-mobile-plain")
+                      //- +skillItem("Desktop", "devicon-desktop-plain")
+                      //- +skillItem("Cloud", "devicon-cloud-plain")
+                      //- +skillItem("Database", "devicon-database-plain")
+                      //- +skillItem("API", "devicon-api-plain")
+                      +skillItem("GraphQL", "devicon-graphql-plain")
+                      //- +skillItem("REST", "devicon-rest-plain")
+                      //- +skillItem("SOAP", "devicon-soap-plain")
+
+
+            // Languages
+            section(class="pb-6 mt-0 mb-4 border-b-4 border-gray-300 first:mt-0 break-inside-avoid")
+              section(class="break-inside-avoid")
+                h2(class="mb-2 text-lg font-bold tracking-widest text-gray-700 print:font-normal") LANGUAGES
+                section(class="mb-0 break-inside-avoid")
+                  section(class="mt-1 last:pb-1")
+                    ul(class="flex flex-wrap font-bold gap-x-1")
+                      mixin langItem(name)
+                        li(class="p-1.5 mb-1 leading-relaxed text-white bg-gray-800 mr-1.6 print:bg-white print:shadow-gray-400 print:shadow-inset-mypixel")= name
+
+                      +langItem("Ukrainian (Native) 🇺🇦")
+                      +langItem("Russian (Native) 🇷🇺")
+                      +langItem("English (B2 in IELTS) 🇬🇧")
+                      +langItem("Spanish (B1) 🇪🇸")
+                      +langItem("Chinese (A1) 🇨🇳")
+
+            // Experience
+            section(class="pb-4 mt-4 border-b-4 border-gray-300 first:mt-0")
+              section(class="break-inside-avoid")
+                h2(class="mb-2 text-xl font-black tracking-widest text-gray-800 print:font-normal") EXPERIENCE
+
+                mixin jobItem(title, company, period, details, isLast)
+                  section(class="mb-2 border-gray-300 break-inside-avoid " + (isLast ? "border-b-0" : "border-b-2"))
+                    header
+                      h3(class="font-semibold text-gray-800 text-md leading-snugish")= title
+                      p(class="text-sm leading-normal text-gray-500")!= period + " | " + company
+                    ul(class="pl-3 mt-2 font-normal text-gray-700 text-md leading-snugish")
+                      each detail in details
+                        li
+                          span(class="text-gray-500 transform -translate-y-px select-none") &rsaquo;
+                          |  #{detail}
+
+                +jobItem(
+                  "RubyOnRails, Full-Stack developer, Team Lead",
+                  "\"Nortapartners\" and \"Nordicresults\", Tallinn, Estonia",
+                  "Jan 2017 – Present",
+                  [
+                    "Main developer, managed work of 3 different applications (Ruby on Rails, Nodejs, React, Angular)",
+                    "Research to improve company's tech stack.",
+                    "DeFi development (rust and solidity).",
+                    "Contact: Ben Schonle"
+                  ]
+                )
+
+                +jobItem(
+                  "Purescript Blockchain Developer",
+                  "FoamSpace, Boston (Remote)",
+                  "May 2021 – Jul 2022",
+                  [
+                    "Worked on blockchain Ethereum project.",
+                    "Used purescript-halogen framework (made hydration for halogen, gained deep knowledge of vdom frameworks' internals).",
+                    "Maintained large codebase using Solidity, Purescript, and JavaScript."
+                  ]
+                )
+
+                +jobItem(
+                  "Full-Stack Developer",
+                  "DevelopsToday, Dnipro, Ukraine (on-site)",
+                  "Jan 2016 – Jan 2017",
+                  [
+                    "Developed with Angular, React, and Node.js for photogrammetry and drone mapping applications.",
+                    "Worked as Ruby on Rails developer and contributed to mobile development.",
+                    "Contact: Dmitriy Tkalich"
+                  ],
+                  true
+                )
+
+            // Out of Work Experience
+            section(class="pb-4 mt-4 border-b-4 border-gray-300 first:mt-0")
+              h2(class="mb-2 text-xl font-black tracking-widest text-gray-800 print:font-normal") OUT OF WORK EXPERIENCE
+              section(class="mb-2 border-gray-300 break-inside-avoid")
+                header
+                  h3(class="font-semibold text-gray-800 text-md leading-snugish") Computer Science Theory Research
+                ul(class="pl-3 mt-2 font-normal text-gray-700 text-md leading-snugish")
+                  li
+                    span(class="text-gray-500 transform -translate-y-px select-none") &rsaquo;
+                    |  Studied Category Theory
+                  li
+                    span(class="text-gray-500 transform -translate-y-px select-none") &rsaquo;
+                    |  Studied Homotopy Type Theory (HoTT)
+                  li
+                    span(class="text-gray-500 transform -translate-y-px select-none") &rsaquo;
+                    |  Studied Programming Language Foundations and Type Systems (how to create languages)

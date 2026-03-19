@@ -1,30 +1,30 @@
-Thank you to all countries that helped Ukraine
+<!-- Thank you to all countries that helped Ukraine -->
 
 # Posts
 
 1. [**🔴 How life was created & other things... (presentation) 🔴**](https://docs.google.com/presentation/d/1x1WXcqXbxWo-Nj3lzXgcSBTdmV-8Ohs9lGZDlfMI76g/edit?usp=sharing)
 
-1. [**🔴 About this universe (outdated) 🔴**](https://srghma.github.io/universe) (translate to other languages: [Chinese](https://srghma-github-io.translate.goog/universe?_x_tr_sl=auto&_x_tr_tl=zh-CN&_x_tr_hl=en&_x_tr_pto=wapp), [Spanish](https://srghma-github-io.translate.goog/universe?_x_tr_sl=auto&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp), [Russian](https://srghma-github-io.translate.goog/universe?_x_tr_sl=auto&_x_tr_tl=ru&_x_tr_hl=en&_x_tr_pto=wapp), [Ukranian](https://srghma-github-io.translate.goog/universe?_x_tr_sl=auto&_x_tr_tl=uk&_x_tr_hl=en&_x_tr_pto=wapp))
+<!-- 1. [**🔴 About this universe (outdated) 🔴**](https://srghma.github.io/universe) (translate to other languages: [Chinese](https://srghma-github-io.translate.goog/universe?_x_tr_sl=auto&_x_tr_tl=zh-CN&_x_tr_hl=en&_x_tr_pto=wapp), [Spanish](https://srghma-github-io.translate.goog/universe?_x_tr_sl=auto&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp), [Russian](https://srghma-github-io.translate.goog/universe?_x_tr_sl=auto&_x_tr_tl=ru&_x_tr_hl=en&_x_tr_pto=wapp), [Ukranian](https://srghma-github-io.translate.goog/universe?_x_tr_sl=auto&_x_tr_tl=uk&_x_tr_hl=en&_x_tr_pto=wapp)) -->
 
 <!-- 1. [My marijuana 👎 and psylocybin 🤏 stories](https://srghma.github.io/psilocybin) -->
 
-1. [About the war](https://srghma.github.io/war) (tried to get all reasons why were are attacked, but I don't regard this post as good anymore)
+<!-- 1. [About the war](https://srghma.github.io/war) (tried to get all reasons why were are attacked, but I don't regard this post as good anymore) -->
 
-1. [Review on "Ukraine on fire" film](https://srghma.github.io/ukraine-on-fire)
+<!-- 1. [Review on "Ukraine on fire" film](https://srghma.github.io/ukraine-on-fire) -->
 
 <!-- 1. [China](https://srghma.github.io/china) (preventing future war with Taiwan and America) -->
 
-1. How to learn [languages](https://srghma.github.io/how-to-learn-languages)
+<!-- 1. How to learn [languages](https://srghma.github.io/how-to-learn-languages) -->
 
-1. [My substack](https://srghma.substack.com/)
+<!-- 1. [My substack](https://srghma.substack.com/) -->
 
-1. [What I will do if become a president](https://github.com/pluralitybook/plurality/issues/963) (TLDR - I will become first Plank-second president)
+<!-- 1. [What I will do if become a president](https://github.com/pluralitybook/plurality/issues/963) (TLDR - I will become first Plank-second president) -->
 
-1. [How Stalin 🇷🇺, Mao 🇨🇳 and PolPot 🇰🇭 violated Pareto Principle and caused deaths 🥀](https://x.com/srghma/status/1776112551476253154)
+<!-- 1. [How Stalin 🇷🇺, Mao 🇨🇳 and PolPot 🇰🇭 violated Pareto Principle and caused deaths 🥀](https://x.com/srghma/status/1776112551476253154) -->
 
 <!-- 1. [Как ты относишься к войне в 🇮🇶 Ираке?](https://x.com/srghma/status/1774665183803453521) -->
 
-
+<!--
 ![ucraine - Page 5](https://user-images.githubusercontent.com/7573215/235322655-b7d788fe-83f6-4a1b-9f4a-6579b3a23966.jpg)
 <br>
 ![ucraine - Page 2](https://user-images.githubusercontent.com/7573215/235322714-59830b34-36af-4155-b8eb-d2f31579e88c.jpg)
@@ -32,6 +32,7 @@ Thank you to all countries that helped Ukraine
 ![ucraine - Page 3](https://user-images.githubusercontent.com/7573215/235322653-b4fa2001-48ea-4b90-8759-7d89c4e1f3ed.jpg)
 <br>
 ![ucraine - Page 4 (1)](https://user-images.githubusercontent.com/7573215/235322654-0ab64720-2e10-46c4-9a97-a098b9a9a9c4.jpg)
+
 
 ## Resume
 
@@ -75,6 +76,8 @@ Thank you to all countries that helped Ukraine
 ### Pirated data
 
 1. public folder - Arestovich https://mega.nz/folder/tllCgZ4D#FQbEy_jjFOfOC-YrHhWE5Q (also the "Священная рана" of Arestovich is on rutracker.org)
+-->
+
 <!--
 <table><tr><td>
 
@@ -130,5 +133,7 @@ What changes do I want to see in Ukraine?
 
 -->
 
+<!--
 2. public folder - languages https://mega.nz/folder/Nh1TgKTB#d6oo1sTLSah-zwXcz-gCvg
 3. public folder - music https://mega.nz/folder/J5NngKaB#gbDpCvrmX_U8roGLhSJmVg
+-->
