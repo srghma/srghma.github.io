@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reaction Game</title>
+    <style>
+      /* CSS Variables for Theming */
+      :root {
+        --bg-color: #000000;
+        --text-color: #ffffff;
+        --control-bg: rgba(255, 255, 255, 0.1);
+        --btn-bg: #333333;
+        --btn-hover: #555555;
+      }
+
+      /* Light Theme overrides */
+      body.light-theme {
+        --bg-color: #ffffff;
+        --text-color: #000000;
+        --control-bg: rgba(0, 0, 0, 0.05);
+        --btn-bg: #dddddd;
+        --btn-hover: #bbbbbb;
+      }
+
+      /* Reset and Layout */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+
+      /* Main Icon Area */
+      #display-container {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      /* Sizing the icons to be huge */
+      #icon-container {
+        width: 60vmin;
+        height: 60vmin;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.1s ease-in-out;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Controls Area */
+      #controls {
+        padding: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: var(--control-bg);
+        width: 100%;
+        transition: background 0.3s;
+      }
+
+      button {
+        background-color: var(--btn-bg);
+        color: var(--text-color);
+        border: none;
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      button:hover {
+        background-color: var(--btn-hover);
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+      button:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Specific Start/Stop Button Colors that look good on black and white */
+      #btn-start {
+        background-color: #27ae60;
+        color: white;
+      }
+
+      #btn-start:hover:not(:disabled) {
+        background-color: #2ecc71;
+      }
+
+      #btn-stop {
+        background-color: #c0392b;
+        color: white;
+      }
+
+      #btn-stop:hover:not(:disabled) {
+        background-color: #e74c3c;
+      }
+
+      @media (max-width: 600px) {
+        button {
+          font-size: 0.9rem;
+          padding: 10px 15px;
+        }
+
+        #icon-container {
+          width: 75vmin;
+          height: 75vmin;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="display-container">
+      <!-- Default State: Solid Square (Stopped) -->
+      <div id="icon-container">
+        <svg viewBox="0 0 24 24" fill="var(--text-color)">
+          <rect x="4" y="4" width="16" height="16" rx="2" />
+        </svg>
+      </div>
+    </div>
+
+    <div id="controls">
+      <button id="btn-start" onclick="startGame()">Start</button>
+      <button id="btn-stop" onclick="stopGame()" disabled>Stop</button>
+      <button id="btn-diff" onclick="toggleDifficulty()">Diff: Normal</button>
+      <button id="btn-theme" onclick="toggleTheme()">Theme: Dark</button>
+      <button id="btn-fullscreen" onclick="toggleFullScreen()">
+        ⛶ Fullscreen
+      </button>
+    </div>
+
+    <script>
+      // DOM Elements
+      const iconContainer = document.getElementById("icon-container");
+      const btnStart = document.getElementById("btn-start");
+      const btnStop = document.getElementById("btn-stop");
+      const btnDiff = document.getElementById("btn-diff");
+      const btnTheme = document.getElementById("btn-theme");
+
+      // SVG Icons (Clean, Solid, No boxes)
+      const icons = {
+        // Grey Hourglass
+        wait: `<svg viewBox="0 0 24 24" fill="#888888"><path d="M6 2v6l4 4-4 4v6h12v-6l-4-4 4-4v-6z"/></svg>`,
+        // Blue Left Arrow
+        left: `<svg viewBox="0 0 24 24" fill="#3498db"><path d="M2 12l10-10v6h10v8h-10v6z"/></svg>`,
+        // Orange Right Arrow
+        right: `<svg viewBox="0 0 24 24" fill="#e67e22"><path d="M22 12l-10-10v6h-10v8h10v6z"/></svg>`,
+        // Standard Text-Color Square
+        stop: `<svg viewBox="0 0 24 24" fill="var(--text-color)"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>`,
+      };
+
+      // Game State Variables
+      let isPlaying = false;
+      let timerId = null;
+      let isDarkTheme = true;
+
+      // Difficulty Levels Settings (Wait time / Display time in milliseconds)
+      const difficulties = [
+        { name: "Easy", minWait: 3000, maxWait: 7000, showDuration: 3000 },
+        { name: "Normal", minWait: 2000, maxWait: 5000, showDuration: 2000 },
+        { name: "Hard", minWait: 1000, maxWait: 3000, showDuration: 1000 },
+      ];
+      let currentDiffIndex = 1; // Starts at Normal
+
+      function toggleTheme() {
+        isDarkTheme = !isDarkTheme;
+        if (isDarkTheme) {
+          document.body.classList.remove("light-theme");
+          btnTheme.innerText = "Theme: Dark";
+        } else {
+          document.body.classList.add("light-theme");
+          btnTheme.innerText = "Theme: Light";
+        }
+      }
+
+      function toggleDifficulty() {
+        if (isPlaying) return;
+        currentDiffIndex = (currentDiffIndex + 1) % difficulties.length;
+        btnDiff.innerText = "Diff: " + difficulties[currentDiffIndex].name;
+      }
+
+      function startGame() {
+        if (isPlaying) return;
+        isPlaying = true;
+
+        // Update Buttons
+        btnStart.disabled = true;
+        btnStop.disabled = false;
+        btnDiff.disabled = true;
+
+        scheduleNextRound();
+      }
+
+      function stopGame() {
+        isPlaying = false;
+        clearTimeout(timerId);
+
+        // Reset UI to Stop Icon
+        iconContainer.innerHTML = icons.stop;
+
+        // Update Buttons
+        btnStart.disabled = false;
+        btnStop.disabled = true;
+        btnDiff.disabled = false;
+      }
+
+      function scheduleNextRound() {
+        if (!isPlaying) return;
+
+        // Show Hourglass Icon
+        iconContainer.innerHTML = icons.wait;
+
+        // Calculate random wait time
+        const diff = difficulties[currentDiffIndex];
+        const randomWaitTime =
+          Math.random() * (diff.maxWait - diff.minWait) + diff.minWait;
+
+        // Set timer to show direction
+        timerId = setTimeout(showDirection, randomWaitTime);
+      }
+
+      function showDirection() {
+        if (!isPlaying) return;
+
+        // 50% chance for Left or Right
+        const isLeft = Math.random() < 0.5;
+
+        // Show Arrow Icon
+        if (isLeft) {
+          iconContainer.innerHTML = icons.left;
+        } else {
+          iconContainer.innerHTML = icons.right;
+        }
+
+        // Loop back to waiting state
+        const diff = difficulties[currentDiffIndex];
+        timerId = setTimeout(scheduleNextRound, diff.showDuration);
+      }
+
+      // Fullscreen API logic
+      function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch((err) => {
+            console.log(
+              `Error attempting to enable fullscreen: ${err.message}`,
+            );
+          });
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
