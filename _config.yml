@@ -12,9 +12,3 @@ plugins:
 markdown: gfm
 # kramdown:
 #   auto_ids: true
-redirect_from:
-  - /index.html
-  - /resume
-redirect_from:
-  - /
-  - /resume
