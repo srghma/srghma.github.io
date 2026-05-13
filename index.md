@@ -1,9 +1,3 @@
----
-layout: null
-permalink: /
-redirect_to: /resume
----
-
 <!-- Thank you to all countries that helped Ukraine -->
 <!-- 
 # Posts
